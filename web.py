@@ -37,9 +37,16 @@ target_language = st.selectbox("Target language", lenguages)
 model = st.selectbox("Model", ["small", "medium", "large", "tiny"])
 
 if st.button("Generate subtitles"):
-    st.text("Generating subtitles...")
-    output_srt_path = f"{video_path}.srt"
-    comm.send_initiator(True)
+    if uploaded_file is None:
+        st.error("Please upload a video or audio file first!")
+    else:
+        st.info("Generating subtitles...")
+        try:
+            output_srt_path = f"{video_path}.srt"
+            comm.send_initiator(True) 
+            #st.download_button("Download SRT", open(output_srt_path, "rb"), file_name=f"{uploaded_file.name}.srt")
+        except Exception as e:
+            st.error(f"An error occurred while generating subtitles: {str(e)}")
 
 
 # comprobar que se ha generado el archivo y luego ejecutar este codigo
