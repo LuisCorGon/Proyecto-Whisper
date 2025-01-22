@@ -1,5 +1,5 @@
 streamlit==1.23.0
 whisper==1.0.0
-torch==1.12.1+cpu  # O la versión que sea compatible con tu entorno
+torch==2.2.2# O la versión que sea compatible con tu entorno
 torchaudio==0.12.1
 tempfile  # No es necesario si usas el módulo de Python que ya viene por defecto
