@@ -1,3 +1,4 @@
 streamlit
 whisper
 torch
+numpy == 2.1.0
