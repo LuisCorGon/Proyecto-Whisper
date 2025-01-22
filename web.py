@@ -24,13 +24,10 @@ try:
         st.write("Filename:", uploaded_file.name)
         st.write("Type:", uploaded_file.type)
         st.write("Size:", uploaded_file.size)
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
-        tmp_file.write(uploaded_file.getbuffer())
-        video_path = tmp_file.name
-
-    st.success(f"File saved to temporary path: {video_path}")
-
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
+            tmp_file.write(uploaded_file.getbuffer())
+            video_path = tmp_file.name
+            st.success(f"File saved to temporary path: {video_path}")
 except:
     st.error(f"An error occurred while saving the file: {uploaded_file.name}")
 
