@@ -1,5 +1,9 @@
 import whisper
 import os
+import web
+from communicator import Communicator
+
+comm = Communicator()
 
 def generate_translated_srt(video_path, output_srt_path, target_language="es", model="large"):
     # Comprueba si el archivo existe
@@ -34,8 +38,7 @@ def format_time(seconds):
     mins, secs = divmod(secs, 60)
     return f"{hrs:02}:{mins:02}:{secs:02},{ms:03}"
 
-# Ruta del video MP4 y salida SRT
-video_path = "video.mp4"
-output_srt_path = "subtitles.srt"
 
-generate_translated_srt(video_path, output_srt_path)
+if comm.get_initiator():
+    generate_translated_srt(web.video_path, web.output_srt_path, web.target_language, web.model)
+
