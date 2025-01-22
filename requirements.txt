@@ -1,5 +1,4 @@
-streamlit==1.23.0
-whisper==1.1.3
-torch==2.2.2
-torchaudio==2.2.2
-tempfile  # No es necesario si usas el módulo de Python que ya viene por defecto
+streamlit
+whisper
+torch
+tempfile 
